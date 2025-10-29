@@ -1,0 +1,338 @@
+/* ==================================== */
+/* 1. RESET Y ESTILOS GLOBALES */
+/* ==================================== */
+:root {
+    --color-primary: #000000; /* Negro para textos principales y botones */
+    --color-secondary: #0077B6; /* Azul deportivo para acentos (ej. hover) */
+    --color-background-light: #F8F8F8; /* Gris muy claro para fondos de sección */
+    --color-text-subtle: #666666; /* Gris para textos secundarios */
+    --color-border: #EAEAEA; /* Gris claro para bordes */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF; /* Fondo principal blanco */
+    color: var(--color-primary);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* ------------------------------------- */
+/* 2. ENCABEZADO Y NAVEGACIÓN */
+/* ------------------------------------- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-left: 25px;
+}
+
+.main-nav ul li a {
+    font-size: 15px;
+    padding: 5px 0;
+    text-transform: uppercase;
+}
+
+.nav-icon {
+    font-size: 20px;
+    margin-left: 5px; /* Ajuste para separar los iconos */
+}
+
+/* Ocultar el icono de menú en PC */
+.menu-toggle {
+    display: none;
+}
+
+/* ------------------------------------- */
+/* 3. CONTENIDO PRINCIPAL Y BANNER HERO */
+/* ------------------------------------- */
+.home-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-banner {
+    background-size: cover;
+    background-position: center 40%; 
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    color: #FFFFFF; 
+}
+
+.hero-text {
+    max-width: 550px;
+    padding: 30px;
+    /* Fondo sutilmente oscuro y elegante */
+    background-color: rgba(0, 0, 0, 0.45); 
+}
+
+.year-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-text h1 {
+    font-size: 55px;
+    margin: 0 0 15px 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.hero-text p {
+    font-size: 17px;
+    margin-bottom: 30px;
+    color: #D3D3D3;
+}
+
+.btn-shop-guide {
+    display: inline-block;
+    background-color: var(--color-secondary); /* Azul para destacar */
+    color: #FFFFFF;
+    padding: 12px 30px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--color-secondary);
+}
+
+.btn-shop-guide:hover {
+    background-color: #FFFFFF;
+    color: var(--color-secondary);
+}
+
+
+/* ------------------------------------- */
+/* 4. SECCIÓN DE CATEGORÍAS */
+/* ------------------------------------- */
+.category-grid {
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.category-grid h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.category-item {
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-item img {
+    width: 100%;
+    height: 350px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-item:hover img {
+    transform: scale(1.05);
+}
+
+.category-item p {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+
+/* ------------------------------------- */
+/* 5. BANNER DE NOVEDADES (TIPO ON CLOUD) */
+/* ------------------------------------- */
+/* ------------------------------------- */
+/* 5. BANNER DE NOVEDADES (TIPO ON CLOUD) */
+/* ------------------------------------- */
+
+/* ... estilos anteriores se mantienen ... */
+
+.image-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.image-content .product-link {
+    display: block;
+    line-height: 0;
+    border: none;
+    /* CLAVE: Establecer el tamaño de la tarjeta/enlace que contiene la imagen */
+    width: 28%; /* Ya estaba para mostrar 3 en línea, lo mantendremos */
+    max-width: 560px; /* Limita el ancho máximo del contenedor de la imagen */
+}
+
+/* ⬇️ ESTO ES LO CRUCIAL: Definir el tamaño de la imagen */
+.image-content img {
+    /* CLAVE: Forzar que la imagen ocupe el 100% del ancho de su contenedor (28% del banner-inner) */
+    width: 100%;
+    /* CLAVE: Establecer una altura fija y usar object-fit */
+    height: 560px; 
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse, recortando si es necesario */
+    
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.image-content .product-link:hover img {
+    opacity: 0.85;
+    filter: brightness(0.95);
+}
+
+/* ... el resto de la sección 5 se mantiene ... */
+
+    /* ------------------------------------- */
+/* 6. VITRINA DE PRODUCTOS (SHOWCASE) - CÓDIGO FINAL */
+/* ------------------------------------- */
+.product-showcase {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.product-showcase h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* 1. CLAVE: Contenedor de Scroll y Disposición Horizontal */
+.product-scroll-container {
+    display: flex; /* <-- **CLAVE 1: Alinea las tarjetas en una fila** */
+    overflow-x: scroll; /* <-- **CLAVE 2: Habilita el desplazamiento horizontal** */
+    gap: 25px; /* Espacio entre cada tarjeta */
+    padding-bottom: 15px; 
+    
+    /* Opcional: Ocultar barra de scroll para un look más limpio (pero sigue funcionando) */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.product-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 2. CLAVE: Estilo y Comportamiento de Cada Tarjeta */
+.product-card-home {
+    /* CLAVE 3: min-width asegura que la tarjeta no se encoja y fuerza el scroll */
+    min-width: 280px; 
+    flex-shrink: 0; /* Evita que la tarjeta se encoja para caber */
+    flex-grow: 0; 
+    text-align: left;
+    
+    /* Interactivo y Elegante */
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    padding-bottom: 10px;
+}
+
+.product-card-home:hover {
+    /* Sombra suave para indicar interactividad */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    /* Efecto leve de elevación */
+    transform: translateY(-5px); 
+}
+
+.product-card-home img {
+    width: 100%;
+    /* Asegura que la imagen no exceda el ancho de la tarjeta */
+    height: auto; 
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Estilos de Texto (mantienen la elegancia) */
+.product-card-home .brand {
+    font-size: 12px;
+    color: var(--color-text-subtle);
+    margin: 5px 0 2px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.product-card-home .name {
+    font-weight: 400;
+    font-size: 16px;
+    margin: 2px 0;
+}
+
+.product-card-home .price {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 5px 0 0 0;
+    color: var(--color-primary);
+}
+
+/* ------------------------------------- */
+/* RESPONSIVIDAD (Ajuste para que el scroll se vea mejor en móviles) */
+/* ------------------------------------- */
+@media (max-width: 900px) {
+    .product-showcase {
+        padding: 0 10px; /* Menos espacio a los lados para dar más ancho al carrusel */
+    }
+    
+    /* En móvil, haz las tarjetas un poco más pequeñas */
+    .product-card-home {
+        min-width: 220px; 
+    }
+}
